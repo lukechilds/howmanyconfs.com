@@ -1,0 +1,17 @@
+@import 'modern-normalize';
+
+.wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 2em;
+  box-sizing: content-box;
+}
+
+.footer {
+  padding: 1em 0;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.footer .me {
+  float: right;
+}

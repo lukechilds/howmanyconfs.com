@@ -1,0 +1,23 @@
+{
+  "name": "howmanyconfs.com",
+  "version": "0.0.0",
+  "description": "Compare security between cryptocurrencies",
+  "main": "index.html",
+  "repository": "lukechilds/howmanyconfs.com",
+  "author": "Luke Childs <lukechilds123@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html --public-url https://howmanyconfs.com",
+    "test": "xo && yarn build"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "modern-normalize": "^0.5.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3",
+    "xo": "^0.24.0"
+  }
+}
