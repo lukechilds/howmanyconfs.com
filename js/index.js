@@ -1,8 +1,8 @@
 import 'babel-polyfill'; // eslint-disable-line import/no-unassigned-import
 import escapeHTML from 'escape-html';
-import coinlist from 'coinlist';
 import {version} from '../package';
 import getCoinData from './get-coin-data';
+import getCoinName from './get-coin-name';
 import formatSeconds from './format-seconds';
 
 document.querySelector('.version').innerText = `v${version}`;
@@ -22,7 +22,7 @@ getCoinData().then(coins => {
 		<tbody>
 			${coins.map(coin => `
 			<tr>
-				<td>${escapeHTML(`${coinlist.get(coin.symbol, 'name') || coin.name} (${coin.symbol})`)}</td>
+				<td>${escapeHTML(`${getCoinName(coin)} (${coin.symbol})`)}</td>
 				<td>${escapeHTML(coin.marketCapFormatted || 'Unknown')}</td>
 				<td>${escapeHTML(`${coin.algorithm} @ ${coin.hashRateFormatted}`)}</td>
 				<td>${escapeHTML(coin.confirmations.toLocaleString())} confs</td>
