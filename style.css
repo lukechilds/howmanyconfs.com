@@ -12,13 +12,24 @@ body {
 }
 
 header {
-  padding: 4em 0 1em;
+  padding: 30px 0;
   background: #F1F1F1;
   margin-bottom: 2em;
 }
 
+header .bitcoin-logo {
+  width: 100px;
+}
+
+header .arm {
+  font-size: 90px;
+  position: relative;
+  top: -10px;
+}
+
 header h1 {
   font-size: 1.6em;
+  margin: 10px 0 0;
 }
 
 table.results {
@@ -31,7 +42,7 @@ table.results thead {
 }
 
 table.results td {
-  padding: 0.5em 0;
+  padding: 1em 0;
   border-top: 1px solid #ECECEC;
 }
 
