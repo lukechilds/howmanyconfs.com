@@ -25,7 +25,7 @@ getCoinData().then(coins => {
 				<td>${escapeHTML(`${coin.algorithm} @ ${coin.hashRateFormatted}`)}</td>
 				<td>${escapeHTML(coin.confirmations.toLocaleString())} confs</td>
 				<td>${escapeHTML(formatSeconds(coin.estimatedTimeForConfs))}</td>
-				<td>${coin.symbol === 'BTC' ? '-' : `${escapeHTML(Math.round(coin.multiplier))} x slower`}</td>
+				<td>${coin.symbol === 'BTC' ? '-' : `${escapeHTML(Math.round(coin.multiplier))}x slower`}</td>
 			</tr>
 			`).join('')}
 		</tbody>
