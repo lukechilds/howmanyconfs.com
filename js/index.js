@@ -14,7 +14,7 @@ getCoinData().then(coins => {
 		<thead>
 			<td>Name</td>
 			<td>Hash Rate</td>
-			<td>Equivalent Confirmations</td>
+			<td>Equivalent Confs</td>
 			<td>Estimated Time</td>
 			<td>Speed</td>
 		</thead>
