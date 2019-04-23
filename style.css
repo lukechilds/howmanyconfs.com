@@ -43,6 +43,9 @@ table.results thead {
 
 table.results td {
   padding: 1em 0;
+  border-bottom: 1px solid #ECECEC;
+}
+table.results thead td {
   border-top: 1px solid #ECECEC;
 }
 
