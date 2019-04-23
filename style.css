@@ -1,10 +1,31 @@
 @import 'modern-normalize';
 
+body {
+  color: #333;
+}
+
 .wrapper {
   max-width: 1024px;
   margin: 0 auto;
   padding: 0 2em;
   box-sizing: content-box;
+}
+
+table.results {
+  width: 100%;
+  border-spacing: 0;
+}
+
+table.results thead {
+  font-weight: bold;
+}
+
+table.results td {
+  padding: 0.5em 0;
+}
+
+table.results tbody tr td {
+  border-top: 1px solid #ECECEC;
 }
 
 .footer {
