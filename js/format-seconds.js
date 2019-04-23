@@ -6,7 +6,7 @@ const formatSeconds = seconds => {
 	const pretty = prettyMs(ms);
 
 	// Only return first two periods
-	return pretty.split(' ').slice(0, 2).join(' ')
+	return pretty.split(' ').slice(0, 2).join(' ');
 };
 
 export default formatSeconds;

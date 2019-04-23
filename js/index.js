@@ -1,6 +1,5 @@
 /* eslint-env browser */
 import 'babel-polyfill'; // eslint-disable-line import/no-unassigned-import
-import prettyMs from 'pretty-ms';
 import {version} from '../package';
 import getCoinData from './get-coin-data';
 import formatSeconds from './format-seconds';
