@@ -12,6 +12,9 @@
     "build": "parcel build index.html --public-url https://howmanyconfs.com",
     "test": "xo && yarn build"
   },
+  "xo": {
+    "env": "browser"
+  },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "coinlist": "^3.1.2",

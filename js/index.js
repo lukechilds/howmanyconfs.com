@@ -1,4 +1,3 @@
-/* eslint-env browser */
 import 'babel-polyfill'; // eslint-disable-line import/no-unassigned-import
 import escapeHTML from 'escape-html';
 import coinlist from 'coinlist';

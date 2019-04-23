@@ -1,4 +1,3 @@
-/* eslint-env browser */
 import coinBlacklist from './coin-blacklist';
 
 const SECONDS = 1;

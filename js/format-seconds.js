@@ -1,4 +1,3 @@
-/* eslint-env browser */
 import prettyMs from 'pretty-ms';
 
 const formatSeconds = seconds => {
