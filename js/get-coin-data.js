@@ -1,4 +1,5 @@
 /* eslint-env browser */
+import coinBlacklist from './coin-blacklist';
 
 const SECONDS = 1;
 const MINUTES = SECONDS * 60;
@@ -11,7 +12,12 @@ const getCoinData = async () => {
 
 	// Format
 	coins = coins
-		.filter(coin => typeof coin.attack_hourly_cost === 'number')
+		.filter(coin => {
+			return (
+				typeof coin.attack_hourly_cost === 'number' &&
+				!coinBlacklist.includes(coin.symbol)
+			);
+		})
 		.map(coin => ({
 			symbol: coin.symbol,
 			name: coin.name,
