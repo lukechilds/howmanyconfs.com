@@ -17,7 +17,7 @@ getCoinData().then(coins => {
 			<td>Proof-of-Work</td>
 			<td>Equivalent Confs</td>
 			<td>Estimated Time</td>
-			<td>Speed</td>
+			<td>Difference</td>
 		</thead>
 		<tbody>
 			${coins.map(coin => `
