@@ -12,9 +12,13 @@ body {
 }
 
 header {
-  padding: 4em 0;
+  padding: 4em 0 1em;
   background: #F1F1F1;
   margin-bottom: 2em;
+}
+
+header h1 {
+  font-size: 1.6em;
 }
 
 table.results {
