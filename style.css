@@ -4,6 +4,15 @@ body {
   color: #333;
 }
 
+a {
+  color: #F7931A;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+a:hover {
+  color: #F25D1F;
+}
+
 .wrapper {
   width: 1024px;
   margin: 0 auto;
@@ -50,8 +59,10 @@ table.results thead td {
 }
 
 .footer {
+  margin-top: 2em;
   padding: 1em 0;
-  background: rgba(255, 255, 255, 0.5);
+  color: #9A9A9A;
+  background: #F1F1F1;;
 }
 
 .footer .me {
