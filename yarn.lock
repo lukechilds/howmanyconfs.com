@@ -1502,6 +1502,11 @@ code-point-at@^1.0.0:
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
 
+coinlist@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/coinlist/-/coinlist-3.1.2.tgz#75c891c8b2d42f6d36794eb16ea9d626232884a4"
+  integrity sha512-tTzy4W+6zPDKBUcmcFSVeDJEYuF4rf6In3uc4e03swkZ+XaKnWdJdTxozLoZcoGU+Fg3J3ya3fzwQTanY9gEtw==
+
 collection-visit@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/collection-visit/-/collection-visit-1.0.0.tgz#4bc0373c164bc3291b4d368c829cf1a80a59dca0"
