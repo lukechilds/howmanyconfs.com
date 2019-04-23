@@ -25,6 +25,7 @@ const getCoinData = async () => {
 			hashRate: coin.hash_rate,
 			hashRateFormatted: coin.hash_rate_pretty,
 			marketCap: coin.market_cap,
+			marketCapFormatted: coin.market_cap_pretty,
 			blockTimeInSeconds: coin.block_time
 		}))
 		.sort((a, b) => b.marketCap - a.marketCap);

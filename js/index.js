@@ -13,6 +13,7 @@ getCoinData().then(coins => {
 	table.innerHTML = `
 		<thead>
 			<td>Name</td>
+			<td>Market Cap</td>
 			<td>Hash Rate</td>
 			<td>Equivalent Confs</td>
 			<td>Estimated Time</td>
@@ -22,6 +23,7 @@ getCoinData().then(coins => {
 			${coins.map(coin => `
 			<tr>
 				<td>${escapeHTML(`${coinlist.get(coin.symbol, 'name') || coin.name} (${coin.symbol})`)}</td>
+				<td>${escapeHTML(coin.marketCapFormatted || 'Unknown')}</td>
 				<td>${escapeHTML(`${coin.algorithm} @ ${coin.hashRateFormatted}`)}</td>
 				<td>${escapeHTML(coin.confirmations.toLocaleString())} confs</td>
 				<td>${escapeHTML(formatSeconds(coin.estimatedTimeForConfs))}</td>
