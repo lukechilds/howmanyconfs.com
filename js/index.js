@@ -5,7 +5,7 @@ import getCoinData from './get-coin-data';
 import getCoinName from './get-coin-name';
 import formatSeconds from './format-seconds';
 
-document.querySelector('.version').innerText = `v${version}`;
+document.querySelector('.version').textContent = `v${version}`;
 
 getCoinData().then(coins => {
 	const table = document.querySelector('table.results');
