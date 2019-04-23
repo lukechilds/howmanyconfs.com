@@ -5,7 +5,7 @@ body {
 }
 
 .wrapper {
-  max-width: 1024px;
+  width: 1024px;
   margin: 0 auto;
   padding: 0 2em;
   box-sizing: content-box;
