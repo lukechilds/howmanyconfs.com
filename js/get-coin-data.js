@@ -34,6 +34,9 @@ const getCoinData = async () => {
 	const referenceCoinSymbol = 'BTC';
 	const referenceConfirmations = 6;
 	const referenceCoin = coins.find(coin => coin.symbol === referenceCoinSymbol);
+	if (!referenceCoin) {
+		return [];
+	}
 	const referenceCoinWorkTime = (referenceConfirmations * referenceCoin.blockTimeInSeconds);
 
 	coins = coins.map(coin => {

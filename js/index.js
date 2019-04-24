@@ -10,16 +10,17 @@ document.querySelector('.version').textContent = `v${version}`;
 getCoinData().then(coins => {
 	const table = document.querySelector('table.results');
 
-	table.innerHTML = `
-		<thead>
-			<td>Name</td>
-			<td>Market Cap</td>
-			<td>Proof-of-Work</td>
-			<td>Equivalent Confs</td>
-			<td>Estimated Time</td>
-			<td>Difference</td>
-		</thead>
-		<tbody>
+	if(coins.length) {
+		table.innerHTML = `
+			<thead>
+				<td>Name</td>
+				<td>Market Cap</td>
+				<td>Proof-of-Work</td>
+				<td>Equivalent Confs</td>
+				<td>Estimated Time</td>
+				<td>Difference</td>
+			</thead>
+			<tbody>
 			${coins.map(coin => `
 			<tr>
 				<td>${escapeHTML(`${getCoinName(coin)} (${coin.symbol})`)}</td>
@@ -30,6 +31,7 @@ getCoinData().then(coins => {
 				<td>${escapeHTML(coin.symbol === 'BTC' ? '-' : `${Math.round(coin.multiplier)}x slower`)}</td>
 			</tr>
 			`).join('')}
-		</tbody>
-	`;
+			</tbody>
+		`;
+	}
 });
