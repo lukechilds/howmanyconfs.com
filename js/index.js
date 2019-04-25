@@ -34,4 +34,6 @@ getCoinData().then(coins => {
 			</tbody>
 		`;
 	}
+
+	document.dispatchEvent(new Event('prerender-trigger'));
 });

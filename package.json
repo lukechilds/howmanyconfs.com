@@ -9,11 +9,16 @@
   "private": true,
   "scripts": {
     "dev": "parcel index.html",
-    "build": "parcel build index.html --public-url https://howmanyconfs.com",
+    "build": "parcel build index.html",
     "test": "xo && yarn build"
   },
   "xo": {
     "env": "browser"
+  },
+  "prerender": {
+    "rendererConfig": {
+      "renderAfterDocumentEvent": "prerender-trigger"
+    }
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
@@ -25,6 +30,7 @@
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.3",
+    "parcel-plugin-prerender": "^1.2.1",
     "xo": "^0.24.0"
   }
 }
