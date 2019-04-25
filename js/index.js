@@ -10,7 +10,7 @@ document.querySelector('.version').textContent = `v${version}`;
 getCoinData().then(coins => {
 	const table = document.querySelector('table.results');
 
-	if(coins.length) {
+	if (coins.length > 0) {
 		table.innerHTML = `
 			<thead>
 				<td>Name</td>

@@ -37,6 +37,7 @@ const getCoinData = async () => {
 	if (!referenceCoin) {
 		return [];
 	}
+
 	const referenceCoinWorkTime = (referenceConfirmations * referenceCoin.blockTimeInSeconds);
 
 	coins = coins.map(coin => {
