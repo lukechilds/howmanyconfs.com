@@ -1,7 +1,7 @@
 {
   "name": "howmanyconfs.com",
   "version": "0.0.0",
-  "description": "Compare security between cryptocurrencies",
+  "description": "How many confirmations are equivalent to 6 Bitcoin confirmations?",
   "main": "index.html",
   "repository": "lukechilds/howmanyconfs.com",
   "author": "Luke Childs <lukechilds123@gmail.com>",
