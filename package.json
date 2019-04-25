@@ -10,7 +10,8 @@
   "scripts": {
     "dev": "parcel index.html",
     "build": "parcel build index.html",
-    "test": "xo && yarn build"
+    "build:dev": "NODE_ENV=development yarn build",
+    "test": "xo && yarn build:dev"
   },
   "xo": {
     "env": "browser"
