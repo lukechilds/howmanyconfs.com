@@ -17,7 +17,6 @@
     "env": "browser"
   },
   "prerender": {
-    "routes": ["/"],
     "rendererConfig": {
       "renderAfterDocumentEvent": "prerender-trigger"
     }
@@ -32,7 +31,7 @@
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.3",
-    "parcel-plugin-prerender": "^1.2.1",
+    "parcel-plugin-prerender": "^1.4.1",
     "xo": "^0.24.0"
   }
 }
