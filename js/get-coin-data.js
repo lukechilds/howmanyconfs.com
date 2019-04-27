@@ -6,7 +6,7 @@ const HOURS = MINUTES * 60;
 
 const getCoinData = async () => {
 	// Fetch coin data
-	const response = await fetch('https://cors.io/?https://www.crypto51.app/coins.json');
+	const response = await fetch('https://api.crypto51.app/coins.json');
 	let {coins} = await response.json();
 
 	// Format
