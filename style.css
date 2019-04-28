@@ -2,6 +2,7 @@
 
 body {
   color: #333;
+  min-width: 900px;
 }
 
 a {
@@ -14,7 +15,7 @@ a:hover {
 }
 
 .wrapper {
-  width: 1024px;
+  max-width: 1024px;
   margin: 0 auto;
   padding: 0 2em;
   box-sizing: content-box;
