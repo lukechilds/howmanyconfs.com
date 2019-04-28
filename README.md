@@ -5,6 +5,8 @@
 [![Build Status](https://travis-ci.com/lukechilds/howmanyconfs.com.svg?branch=master)](https://travis-ci.com/lukechilds/howmanyconfs.com)
 [![tippin.me](https://badgen.net/badge/%E2%9A%A1%EF%B8%8Ftippin.me/@lukechilds/F0918E)](https://tippin.me/@lukechilds)
 
+[![](/screenshot.png)](https://howmanyconfs.com)
+
 ## License
 
 MIT © Luke Childs
