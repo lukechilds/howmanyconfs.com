@@ -1,9 +1,8 @@
 import 'babel-polyfill'; // eslint-disable-line import/no-unassigned-import
 import escapeHTML from 'escape-html';
-// eslint-disable-next-line import/no-unresolved, import/extensions
-import svgs from '../node_modules/cryptocurrency-icons/svg/color/*.svg';
 import {version} from '../package';
 import getCoinData from './get-coin-data';
+import getCoinSVGPath from './get-coin-svg-path';
 import getCoinName from './get-coin-name';
 import formatSeconds from './format-seconds';
 
@@ -26,7 +25,7 @@ getCoinData().then(coins => {
 			${coins.map(coin => `
 			<tr>
 				<td>
-					<img src="${svgs[coin.symbol.toLowerCase()] || svgs.generic}" alt="${coin.symbol} /">
+					<img src="${getCoinSVGPath(coin.symbol)}" alt="${coin.symbol} /">
 					${escapeHTML(`${getCoinName(coin)} (${coin.symbol})`)}
 				</td>
 				<td>${escapeHTML(coin.marketCapFormatted || 'Unknown')}</td>
