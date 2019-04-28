@@ -21,7 +21,7 @@ However that's fairly hard to calculate, we need to know the average power consu
 
 There's no automated way to get this data and no reliable data source to scrape it from. We'd need to manually research all mining hardware and collate the data ourself. And as soon as newer mining hardware comes out our results will be outdated.
 
-Is there a simpler way to get an estimated amount of work per blockchain in a cross-compatible way?
+Is there a simpler way to get an estimated amount of work per blockchain in a single metric we can use for comparisons?
 
 Yeah, there is, we can use NiceHash prices to estimate the cost in $ to secure a blockchain for a given timeframe. This is directly comparable across blockchains and should be directly proportionate to kWh/s, because after all, the energy needs to be paid for in $.
 
@@ -35,7 +35,7 @@ Now we have an estimated total Proof-of-Work metric measured in dollars per seco
 
 The $/s metric may not be that accurate. Miners will mark up the cost when reselling on NiceHash and we're making the assumption that NiceHash supply is infinite. You can't actually rent 100% of Bitcoin's hashpower from NiceHash, there isn't enough supply.
 
-However that's not really an issue for this metric, we aren't trying to calculate the theoretical cost to rent an *additional* 100% of the hashrate, we're trying to get a figure that allows us to compare the cost of the *current* total hashrate accross blockchains. Even if the exact $ value we end up with is not that accurate, it should still be roughly proportionate to kWh/s. This means it's still an accurate metric to compare the difference in work done over a given amount of time between blockchains.
+However that's not really an issue for this metric, we aren't trying to calculate the theoretical cost to rent an *additional* 100% of the hashrate, we're trying to get a figure that allows us to compare the cost of the *current* total hashrate accross blockchains. Even if the exact $ value we end up with is not that accurate, it should still be proportionate to kWh/s. This means it's still an accurate metric to compare the difference in work done over a given amount of time between blockchains.
 
 So how do we compare these values between blockchains?
 
