@@ -13,7 +13,7 @@ const table = document.querySelector('table.results');
 const render = (coins, sortBy) => {
 	let sortOrder = 'asc';
 	if (!sortBy) {
-			sortBy = 'marketCap';
+		sortBy = 'marketCap';
 	} else if (
 		table.dataset.sortBy === sortBy &&
 		table.dataset.sortOrder === sortOrder
