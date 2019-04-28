@@ -35,9 +35,9 @@ const render = (coins, sortBy = 'marketCap') => {
 			<thead>
 				<td>Name</td>
 				<td data-sort="marketCap">Market Cap</td>
-				<td data-sort="multiplier">Proof-of-Work</td>
-				<td data-sort="multiplier">Equivalent Confs</td>
-				<td data-sort="multiplier">Estimated Time</td>
+				<td data-sort="hashRate">Proof-of-Work</td>
+				<td data-sort="confirmations">Equivalent Confs</td>
+				<td data-sort="estimatedTimeForConfs">Estimated Time</td>
 				<td data-sort="multiplier">Difference</td>
 			</thead>
 			<tbody>
