@@ -71,8 +71,26 @@ table.results tbody td:first-child img {
   width: 2em;
 }
 
-table.results thead td[data-sort] {
+table.results thead [data-sort] {
+  position: relative;
   cursor: pointer;
+  color: #333;
+}
+
+table.results thead [data-sort-active]:after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #333;
+}
+table.results[data-sort-order="asc"] thead [data-sort-active]:after {
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid #333;
 }
 
 .footer {

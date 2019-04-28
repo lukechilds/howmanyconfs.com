@@ -33,12 +33,24 @@ const render = (coins, sortBy = 'marketCap') => {
 	if (coins.length > 0) {
 		table.innerHTML = `
 			<thead>
-				<td>Name</td>
-				<td data-sort="marketCap">Market Cap</td>
-				<td data-sort="hashRate">Proof-of-Work</td>
-				<td data-sort="confirmations">Equivalent Confs</td>
-				<td data-sort="estimatedTimeForConfs">Estimated Time</td>
-				<td data-sort="multiplier">Difference</td>
+				<td>
+					Name
+				</td>
+				<td>
+					<a data-sort="marketCap" ${sortBy === 'marketCap' && 'data-sort-active'}>Market Cap</a>
+				</td>
+				<td>
+					<a data-sort="hashRate" ${sortBy === 'hashRate' && 'data-sort-active'}>Proof-of-Work</a>
+				</td>
+				<td>
+					<a data-sort="confirmations" ${sortBy === 'confirmations' && 'data-sort-active'}>Equivalent Confs</a>
+				</td>
+				<td>
+					<a data-sort="estimatedTimeForConfs" ${sortBy === 'estimatedTimeForConfs' && 'data-sort-active'}>Estimated Time</a>
+				</td>
+				<td>
+					<a data-sort="multiplier" ${sortBy === 'multiplier' && 'data-sort-active'}>Difference</a>
+				</td>
 			</thead>
 			<tbody>
 			${coins.map(coin => `
