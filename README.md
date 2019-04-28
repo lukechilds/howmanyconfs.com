@@ -54,6 +54,63 @@ So to calculate how many Litecoin confirmations are equivalent to 6 Bitcoin conf
 
 Therefore we can say that 240 Litecoin confirmations are roughly equal to 6 Bitcoin confirmations in total amount of work done.
 
+### Notes
+
+#### $/s doesn't mean what it sounds like it means.
+
+The $/s values should not be taken as literal costs.
+
+For example:
+
+> - Bitcoin's total $ cost for 6 confirmations is ($100 * 3,600 seconds) $360,000
+
+This is does not mean you could do a 51% attack on Bitcoin and roll back 6 blocks for a cost of $360,000. An attack like that would be much more expensive.
+
+The $/s value is a metric to compare the amount of work at the current hashrate between blockchains. It is not the same as the cost to add hashrate to the network.
+
+When adding hashrate to a network the cost will not scale linearly with hashrate. It will jump suddenly at certain intervals.
+
+For example, once you've used up the available hashrate on NiceHash you need to add the costs of purchasing ASICs, then once you've bought all the ASICs in the world, you'd need to add the costs of fabricating your own chips to keep increasing hashrate.
+
+#### These metrics are measuring "work done", not security.
+
+More "work done" doesn't necessarily mean "more security".
+
+For example take the following two blockchains:
+
+- Bitcoin Cash (SHA-256 @ 2 PH/s) or ($5/s)
+- Zcash (Equihash @ 4 GH/s) or ($3/s)
+
+Bitcoin Cash has a higher $/s value than Zcash so we can deduce it has more "work done" over a given timeframe than Zcash. More kWh/s are required to secure it's blockchain. However does that really mean it's safer?
+
+Zcash is the dominant blockchain for it's Proof-of-Work algorithm (Equihash). Whereas Bitcoin Cash isn't, it uses the same algorithm as Bitcoin. In fact just 5% of Bitcoin's hashrate is equivalent to all of Bitcoin Cash's hashrate.
+
+This means the cost of a 51% attack against Bitcoin Cash could actually be much lower than a 51% attack against Zcash, even though you need to aquire more kWh/s of work, the cost to aquire those kWh/s will likely be lower.
+
+To attack Bitcoin Cash you don't need to acquire any hardware, you just need to convince 5% of the Bitcoin hashrate to lend their SHA-256 hashpower to you.
+
+To attack Zcash, you would likely need to fabricate your own Equihash ASICs, as almost all the Equihash mining hardware in the world is already securing Zcash.
+
+#### Accurately calculating security is much more complicated
+
+These metrics give a good estimated value to compare the hashrate accross different Proof-of-Work blockchains.
+
+However to calculate if a payment can be considered "finalised" involves many more variables.
+
+You should factor in:
+
+- Is this cryptocurrency the dominant cryptocurrency for it's Proof-of-Work algorithm?
+- What is the market cap of this cryptocurrency?
+- What is the daily trading volume of this cryptocurrency?
+- What is the $ value of this transaction?
+
+If the cryptocurrency doesn't dominate the Proof-of-Work it can be attacked more cheaply.
+
+If the market cap or trading volume is really low, an attacker may crash the price of the currency before they can successfully double spend it and make a profit. Although that's more relevant in the context of exchanges rather than individuals accepting payments.
+
+If the value of the transaction is low enough, it may cost more to double spend than an attacker would profit from the double spend.
+
+Ultimately, once the cost of a double spend becomes higher than an attacker can expect to profit from the double spend, that is when a payment can probably be considered "finalised".
 
 ## License
 
