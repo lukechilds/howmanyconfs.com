@@ -10,7 +10,26 @@ document.querySelector('.version').textContent = `v${version}`;
 
 const table = document.querySelector('table.results');
 
-const render = coins => {
+const render = (coins, sortBy = 'marketCap') => {
+	let sortOrder = 'asc';
+	if (
+		table.dataset.sortBy === sortBy &&
+		table.dataset.sortOrder === sortOrder
+	) {
+		sortOrder = 'desc';
+	}
+
+	coins = coins.sort((a, b) => {
+		if (sortOrder === 'asc') {
+			return b[sortBy] - a[sortBy];
+		}
+
+		return a[sortBy] - b[sortBy];
+	});
+
+	table.dataset.sortBy = sortBy;
+	table.dataset.sortOrder = sortOrder;
+
 	if (coins.length > 0) {
 		table.innerHTML = `
 			<thead>
@@ -50,24 +69,6 @@ getCoinData().then(coins => {
 			return;
 		}
 
-		let sortOrder = 'asc';
-		if (
-			table.dataset.sortBy === target.dataset.sort &&
-			table.dataset.sortOrder === sortOrder
-		) {
-			sortOrder = 'desc';
-		}
-
-		const orderedCoins = coins.sort((a, b) => {
-			if (sortOrder === 'asc') {
-				return b[target.dataset.sort] - a[target.dataset.sort];
-			}
-
-			return a[target.dataset.sort] - b[target.dataset.sort];
-		});
-
-		table.dataset.sortBy = target.dataset.sort;
-		table.dataset.sortOrder = sortOrder;
-		render(orderedCoins);
+		render(coins, target.dataset.sort);
 	});
 });
