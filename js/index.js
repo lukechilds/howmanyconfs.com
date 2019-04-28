@@ -10,9 +10,11 @@ document.querySelector('.version').textContent = `v${version}`;
 
 const table = document.querySelector('table.results');
 
-const render = (coins, sortBy = 'marketCap') => {
+const render = (coins, sortBy) => {
 	let sortOrder = 'asc';
-	if (
+	if (!sortBy) {
+			sortBy = 'marketCap';
+	} else if (
 		table.dataset.sortBy === sortBy &&
 		table.dataset.sortOrder === sortOrder
 	) {
