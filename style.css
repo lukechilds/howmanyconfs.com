@@ -71,6 +71,10 @@ table.results tbody td:first-child img {
   width: 2em;
 }
 
+table.results thead td[data-sort] {
+  cursor: pointer;
+}
+
 .footer {
   margin-top: 2em;
   padding: 1em 0;

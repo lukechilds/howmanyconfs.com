@@ -8,18 +8,18 @@ import formatSeconds from './format-seconds';
 
 document.querySelector('.version').textContent = `v${version}`;
 
-getCoinData().then(coins => {
-	const table = document.querySelector('table.results');
+const table = document.querySelector('table.results');
 
+const render = coins => {
 	if (coins.length > 0) {
 		table.innerHTML = `
 			<thead>
 				<td>Name</td>
-				<td>Market Cap</td>
-				<td>Proof-of-Work</td>
-				<td>Equivalent Confs</td>
-				<td>Estimated Time</td>
-				<td>Difference</td>
+				<td data-sort="marketCap">Market Cap</td>
+				<td data-sort="multiplier">Proof-of-Work</td>
+				<td data-sort="multiplier">Equivalent Confs</td>
+				<td data-sort="multiplier">Estimated Time</td>
+				<td data-sort="multiplier">Difference</td>
 			</thead>
 			<tbody>
 			${coins.map(coin => `
@@ -40,4 +40,34 @@ getCoinData().then(coins => {
 	}
 
 	document.dispatchEvent(new Event('prerender-trigger'));
+};
+
+getCoinData().then(coins => {
+	render(coins);
+
+	table.addEventListener('click', ({target}) => {
+		if (!target.dataset.sort) {
+			return;
+		}
+
+		let sortOrder = 'asc';
+		if (
+			table.dataset.sortBy === target.dataset.sort &&
+			table.dataset.sortOrder === sortOrder
+		) {
+			sortOrder = 'desc';
+		}
+
+		const orderedCoins = coins.sort((a, b) => {
+			if (sortOrder === 'asc') {
+				return b[target.dataset.sort] - a[target.dataset.sort];
+			}
+
+			return a[target.dataset.sort] - b[target.dataset.sort];
+		});
+
+		table.dataset.sortBy = target.dataset.sort;
+		table.dataset.sortOrder = sortOrder;
+		render(orderedCoins);
+	});
 });
