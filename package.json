@@ -27,6 +27,7 @@
     "cryptocurrency-icons": "^0.13.0",
     "escape-html": "^1.0.3",
     "modern-normalize": "^0.5.0",
+    "parcel-plugin-ogimage": "^1.1.0",
     "pretty-ms": "^4.0.0"
   },
   "devDependencies": {
