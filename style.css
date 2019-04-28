@@ -52,11 +52,23 @@ table.results thead {
 }
 
 table.results td {
-  padding: 1em 0;
+  padding: 1.4em 0;
   border-bottom: 1px solid #ECECEC;
 }
 table.results thead td {
   border-top: 1px solid #ECECEC;
+}
+
+table.results tbody td:first-child {
+  position: relative;
+  padding-left: 2.6em;
+}
+table.results tbody td:first-child img {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 2em;
 }
 
 .footer {
