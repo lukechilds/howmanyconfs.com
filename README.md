@@ -112,6 +112,10 @@ If the value of the transaction is low enough, it may cost more to double spend 
 
 Ultimately, once the cost of a double spend becomes higher than an attacker can expect to profit from the double spend, that is when a payment can probably be considered "finalised".
 
+## Something wrong?
+
+Do you think I've made a mistake or got something wrong? Please [open an issue](https://github.com/lukechilds/howmanyconfs.com/issues/new) or submit a pull request and let me know!
+
 ## License
 
 MIT © Luke Childs
