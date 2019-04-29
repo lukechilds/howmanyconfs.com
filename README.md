@@ -116,6 +116,10 @@ Ultimately, once the cost of a double spend becomes higher than an attacker can 
 
 Do you think I've made a mistake or got something wrong? Please [open an issue](https://github.com/lukechilds/howmanyconfs.com/issues/new) or submit a pull request and let me know!
 
+## Credit
+
+Data is from [api.crypto51.app/coins.json](https://api.crypto51.app/coins.json) by [@tdickman](https://github.com/tdickman)
+
 ## License
 
 MIT © Luke Childs
