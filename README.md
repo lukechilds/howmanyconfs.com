@@ -91,7 +91,7 @@ To attack Bitcoin Cash you don't need to acquire any hardware, you just need to 
 
 To attack Zcash, you would likely need to fabricate your own Equihash ASICs, as almost all the Equihash mining hardware in the world is already securing Zcash.
 
-#### Accurately calculating security is much more complicated
+#### Accurately calculating security is much more complicated.
 
 These metrics give a good estimated value to compare the hashrate accross different Proof-of-Work blockchains.
 
