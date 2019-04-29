@@ -57,6 +57,7 @@ table.results td {
 }
 table.results thead td {
   border-top: 1px solid #ECECEC;
+  padding-right: 2em;
 }
 
 table.results tbody td:first-child {
@@ -77,20 +78,29 @@ table.results thead [data-sort] {
   color: #333;
 }
 
-table.results thead [data-sort-active]:after {
+table.results thead [data-sort]:before,
+table.results thead [data-sort]:after {
   content: '';
   display: block;
   position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid #333;
+  right: -1em;
+  transform: translateY(-50%);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
 }
-table.results[data-sort-order="asc"] thead [data-sort-active]:after {
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid #333;
+table.results thead [data-sort]:before {
+  border-bottom: 4px solid #BFBFBF;
+  top: calc(50% - 3px);
+}
+table.results thead [data-sort]:after {
+  border-top: 4px solid #BFBFBF;
+  top: calc(50% + 3px);
+}
+table.results[data-sort-order="asc"] thead [data-sort-active]:before {
+  border-bottom-color: #333;
+}
+table.results[data-sort-order="desc"] thead [data-sort-active]:after {
+  border-top-color: #333;
 }
 
 .footer {
