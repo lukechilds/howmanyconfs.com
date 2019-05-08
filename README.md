@@ -103,12 +103,15 @@ You should factor in:
 - What is the market cap of this cryptocurrency?
 - What is the daily trading volume of this cryptocurrency?
 - What is the $ value of this transaction?
+- What is the probability of a successful double-spend, given the attacker's hashrate?
 
 If the cryptocurrency doesn't dominate the Proof-of-Work it can be attacked more cheaply.
 
 If the market cap or trading volume is really low, an attacker may crash the price of the currency before they can successfully double spend it and make a profit. Although that's more relevant in the context of exchanges rather than individuals accepting payments.
 
 If the value of the transaction is low enough, it may cost more to double spend than an attacker would profit from the double spend.
+
+If the attacker can't muster a high enough percentage of the network hashrate, a double-spend attempt can fail, increasing the average cost of a successful attack. The probability depends on the number of confirmations and the effective hashrate of the attacker, but not on the time between blocks, giving an advantage to networks with faster blocks. This is discussed [here](https://arxiv.org/pdf/1402.2009.pdf).
 
 Ultimately, once the cost of a double spend becomes higher than an attacker can expect to profit from the double spend, that is when a payment can probably be considered "finalised".
 
