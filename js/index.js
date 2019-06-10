@@ -42,7 +42,7 @@ const render = (coins, sortBy) => {
 					<a data-sort="marketCap" ${sortBy === 'marketCap' && 'data-sort-active'}>Market Cap</a>
 				</td>
 				<td>
-					<a data-sort="hashRate" ${sortBy === 'hashRate' && 'data-sort-active'}>Proof-of-Work</a>
+					<a data-sort="multiplier" ${sortBy === 'multiplier' && 'data-sort-active'}>Proof-of-Work</a>
 				</td>
 				<td>
 					<a data-sort="confirmations" ${sortBy === 'confirmations' && 'data-sort-active'}>Equivalent Confs</a>
