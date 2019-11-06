@@ -18,7 +18,10 @@ exports.handler = async () => {
 				'Access-Control-Allow-Origin': '*',
 				'Content-Type': 'application/json'
 			},
-			body: error.toString()
+			body: JSON.stringify({
+				error: true,
+				message: error.message
+			})
 		};
 	}
 };
