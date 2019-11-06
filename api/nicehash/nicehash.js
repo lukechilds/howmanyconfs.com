@@ -5,6 +5,7 @@ exports.handler = async () => {
 		return {
 			statusCode: 200,
 			headers: {
+				'Access-Control-Allow-Origin': '*',
 				'Cache-Control': 'public, s-max-age=600',
 				'Content-Type': 'application/json'
 			},
