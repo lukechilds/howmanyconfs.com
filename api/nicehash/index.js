@@ -1,5 +1,10 @@
 const got = require('got');
 
+const SECONDS = 1;
+const MINUTES = SECONDS * 60;
+const HOURS = MINUTES * 60;
+const DAYS = HOURS * 24;
+
 const getNiceHashEndpoint = async endpoint => {
 	const response = await got('https://api2.nicehash.com/main/api/v2/' + endpoint, {json: true});
 
@@ -38,7 +43,7 @@ const getNiceHashData = async () => {
 
 			const values = currentValues.algos.find(algo => algo.a === algorithm.id);
 			const pricePerHashPerDay = values.p / 100000000;
-			algorithm.pricePerHashPerSecond = pricePerHashPerDay / 86400;
+			algorithm.pricePerHashPerSecond = pricePerHashPerDay / DAYS;
 			algorithm.hashrate = values.s;
 
 			algorithm.priceReadable = (pricePerHashPerDay * marketFactor).toFixed(4) + ` BTC/${displayMarketFactor}/day`;
