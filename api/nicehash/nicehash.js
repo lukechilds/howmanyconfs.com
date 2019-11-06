@@ -12,6 +12,13 @@ exports.handler = async () => {
 			body: JSON.stringify(await getNiceHashData())
 		};
 	} catch (error) {
-		return {statusCode: 500, body: error.toString()};
+		return {
+			statusCode: 500,
+			headers: {
+				'Access-Control-Allow-Origin': '*',
+				'Content-Type': 'application/json'
+			},
+			body: error.toString()
+		};
 	}
 };
