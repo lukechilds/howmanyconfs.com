@@ -1,13 +1,13 @@
 const fetch = require('isomorphic-fetch');
 
-const getWtmEndpoint = async endpoint => fetch(
-	'https://whattomine.com/' + endpoint
+const getData = async endpoint => fetch(
+	`https://whattomine.com/${endpoint}.json`
 ).then(res => res.json());
 
 const getCoinData = async () => {
 	const [gpu, asic] = await Promise.all([
-		getWtmEndpoint('coins.json'),
-		getWtmEndpoint('asic.json')
+		getData('coins'),
+		getData('asic')
 	]);
 
 	const coins = Object.entries({...gpu.coins, ...asic.coins})

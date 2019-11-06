@@ -5,7 +5,7 @@ const MINUTES = SECONDS * 60;
 const HOURS = MINUTES * 60;
 const DAYS = HOURS * 24;
 
-const getNiceHashEndpoint = async endpoint => fetch(
+const getData = async endpoint => fetch(
 	'https://api2.nicehash.com/main/api/v2/' + endpoint
 ).then(res => res.json());
 
@@ -25,8 +25,8 @@ const convertToUnit = (value, unit) => {
 
 const getNiceHashData = async () => {
 	const [algorithmData, currentValues] = await Promise.all([
-		getNiceHashEndpoint('mining/algorithms'),
-		getNiceHashEndpoint('public/stats/global/current')
+		getData('mining/algorithms'),
+		getData('public/stats/global/current')
 	]);
 
 	const algorithms = algorithmData.miningAlgorithms
