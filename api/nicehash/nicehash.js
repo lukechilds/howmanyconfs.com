@@ -9,7 +9,10 @@ exports.handler = async () => {
 				'Cache-Control': 'public, s-max-age=600',
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify(await getNiceHashData())
+			body: JSON.stringify({
+				error: false,
+				data: await getNiceHashData()
+			})
 		};
 	} catch (error) {
 		return {
