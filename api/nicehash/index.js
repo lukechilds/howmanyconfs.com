@@ -37,11 +37,12 @@ const getNiceHashData = async () => {
 			const {displayMarketFactor} = value;
 
 			const values = currentValues.algos.find(algo => algo.a === algorithm.id);
+			const pricePerHashPerDay = values.p / 100000000;
+			algorithm.pricePerHashPerSecond = pricePerHashPerDay / 86400;
 			algorithm.hashrate = values.s;
-			algorithm.pricePerHashPerDay = values.p / 100000000;
 
+			algorithm.priceReadable = (pricePerHashPerDay * marketFactor).toFixed(4) + ` BTC/${displayMarketFactor}/day`;
 			algorithm.hashrateReadable = convertToUnit(algorithm.hashrate, displayMarketFactor).toFixed(4) + ` ${displayMarketFactor}/s`;
-			algorithm.priceReadable = (algorithm.pricePerHashPerDay * marketFactor).toFixed(4) + ` BTC/${displayMarketFactor}/day`;
 
 			return algorithm;
 		});
