@@ -11,6 +11,7 @@ exports.handler = async () => {
 			},
 			body: JSON.stringify({
 				error: false,
+				updated: new Date(),
 				data: await getNiceHashData()
 			})
 		};
