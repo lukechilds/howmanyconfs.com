@@ -1,15 +1,13 @@
-const got = require('got');
+const fetch = require('isomorphic-fetch');
 
 const SECONDS = 1;
 const MINUTES = SECONDS * 60;
 const HOURS = MINUTES * 60;
 const DAYS = HOURS * 24;
 
-const getNiceHashEndpoint = async endpoint => {
-	const response = await got('https://api2.nicehash.com/main/api/v2/' + endpoint, {json: true});
-
-	return response.body;
-};
+const getNiceHashEndpoint = async endpoint => fetch(
+	'https://api2.nicehash.com/main/api/v2/' + endpoint
+).then(res => res.json());
 
 const convertToUnit = (value, unit) => {
 	const unitExponent = [
