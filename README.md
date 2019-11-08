@@ -121,7 +121,7 @@ Do you think I've made a mistake or got something wrong? Please [open an issue](
 
 ## Credit
 
-Data is from [api.crypto51.app/coins.json](https://api.crypto51.app/coins.json) by [@tdickman](https://github.com/tdickman)
+Data is sourced from [whattomine.com](https://whattomine.com/) and [nicehash.com](https://www.nicehash.com/).
 
 ## License
 
