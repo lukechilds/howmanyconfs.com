@@ -16,6 +16,11 @@
   "xo": {
     "env": "browser"
   },
+  "prerender": {
+    "rendererConfig": {
+      "renderAfterDocumentEvent": "prerender-trigger"
+    }
+  },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "coinlist": "^3.1.2",
