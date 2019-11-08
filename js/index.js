@@ -82,11 +82,7 @@ const render = (coins, sortBy) => {
 fetch('/api/data')
 	.then(response => response.json())
 	.then(coins => {
-		// Calculate reference bitcoin values
 		const bitcoin = coins.find(coin => coin.symbol === 'BTC');
-		if (!bitcoin) {
-			// Handle this
-		}
 
 		coins = coins
 			.filter(coin => !coinBlackList.includes(coin.symbol))
