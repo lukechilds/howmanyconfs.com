@@ -4,6 +4,7 @@ const formatHashrate = hashrate => ['H', 'KH', 'MH', 'GH', 'TH', 'PH'].reduce((p
 		const value = Math.floor(hashrate / devisor);
 		return `${value.toLocaleString()} ${unit}/s`;
 	}
+
 	return previous;
 });
 

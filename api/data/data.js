@@ -38,7 +38,7 @@ const getData = async () => {
 			return {
 				...coin,
 				hashrateCostPerSecond,
-				nicehasheable,
+				nicehasheable
 			};
 		});
 
