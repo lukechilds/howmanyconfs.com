@@ -7,11 +7,7 @@ const sendJson = async getData => {
 				'Cache-Control': 'public, s-max-age=600',
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify({
-				error: false,
-				updated: new Date(),
-				data: await getData()
-			})
+			body: JSON.stringify(await getData())
 		};
 	} catch (error) {
 		return {
