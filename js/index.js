@@ -1,7 +1,6 @@
 import 'babel-polyfill'; // eslint-disable-line import/no-unassigned-import
 import escapeHTML from 'escape-html';
 import {version} from '../package';
-import getCoinData from './get-coin-data';
 import getCoinSVGPath from './get-coin-svg-path';
 import getCoinName from './get-coin-name';
 import formatSeconds from './format-seconds';
@@ -75,14 +74,16 @@ const render = (coins, sortBy) => {
 	document.dispatchEvent(new Event('prerender-trigger'));
 };
 
-getCoinData().then(coins => {
-	render(coins);
+fetch('/api/data')
+	.then(response => response.json())
+	.then(coins => {
+		render(coins);
 
-	table.addEventListener('click', ({target}) => {
-		if (!target.dataset.sort) {
-			return;
-		}
+		table.addEventListener('click', ({target}) => {
+			if (!target.dataset.sort) {
+				return;
+			}
 
-		render(coins, target.dataset.sort);
-	});
+			render(coins, target.dataset.sort);
+		});
 });
