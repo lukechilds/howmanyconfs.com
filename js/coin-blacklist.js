@@ -3,6 +3,7 @@ export default [
 	'XDN',
 	'PPC',
 	'DGB', // We could actually support this if we merge the different algoriths
+	'XVG',
 	'DCY',
 	'DP',
 	'NLG',
