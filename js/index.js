@@ -4,6 +4,8 @@ import {version} from '../package';
 import getCoinSVGPath from './get-coin-svg-path';
 import getCoinName from './get-coin-name';
 import formatSeconds from './format-seconds';
+import formatDollars from './format-dollars';
+import formatHashrate from './format-hashrate';
 
 document.querySelector('.version').textContent = `v${version}`;
 
@@ -41,7 +43,7 @@ const render = (coins, sortBy) => {
 					<a data-sort="marketCap" ${sortBy === 'marketCap' && 'data-sort-active'}>Market Cap</a>
 				</td>
 				<td>
-					<a data-sort="multiplier" ${sortBy === 'multiplier' && 'data-sort-active'}>Proof-of-Work</a>
+					<a data-sort="bitcoinConfEquivalent.multiplier" ${sortBy === 'multiplier' && 'data-sort-active'}>Proof-of-Work</a>
 				</td>
 				<td>
 					<a data-sort="confirmations" ${sortBy === 'confirmations' && 'data-sort-active'}>Equivalent Confs</a>
@@ -60,11 +62,11 @@ const render = (coins, sortBy) => {
 					<img src="${getCoinSVGPath(coin.symbol)}" alt="${coin.symbol} /">
 					${escapeHTML(`${getCoinName(coin)} (${coin.symbol})`)}
 				</td>
-				<td>${escapeHTML(coin.marketCapFormatted || 'Unknown')}</td>
-				<td>${escapeHTML(`${coin.algorithm} @ ${coin.hashRateFormatted}`)}</td>
-				<td>${escapeHTML(coin.confirmations.toLocaleString())} confs</td>
-				<td>${escapeHTML(formatSeconds(coin.estimatedTimeForConfs))}</td>
-				<td>${escapeHTML(coin.symbol === 'BTC' ? '-' : `${Math.round(coin.multiplier).toLocaleString()}x slower`)}</td>
+				<td>${escapeHTML(formatDollars(coin.marketCap) || 'Unknown')}</td>
+				<td>${escapeHTML(`${coin.algorithm} @ ${formatHashrate(coin.hashrate)}`)}</td>
+				<td>${escapeHTML(coin.bitcoinConfEquivalent.confirmations.toLocaleString())} confs</td>
+				<td>${escapeHTML(formatSeconds(coin.bitcoinConfEquivalent.estimatedTimeForConfs))}</td>
+				<td>${escapeHTML(coin.symbol === 'BTC' ? '-' : `${Math.round(coin.bitcoinConfEquivalent.multiplier).toLocaleString()}x slower`)}</td>
 			</tr>
 			`).join('')}
 			</tbody>
