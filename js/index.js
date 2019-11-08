@@ -43,16 +43,16 @@ const render = (coins, sortBy) => {
 					<a data-sort="marketCap" ${sortBy === 'marketCap' && 'data-sort-active'}>Market Cap</a>
 				</td>
 				<td>
-					<a data-sort="bitcoinConfEquivalent.multiplier" ${sortBy === 'multiplier' && 'data-sort-active'}>Proof-of-Work</a>
+					<a data-sort="bitcoinWorkMultiplier" ${sortBy === 'bitcoinWorkMultiplier' && 'data-sort-active'}>Proof-of-Work</a>
 				</td>
 				<td>
-					<a data-sort="confirmations" ${sortBy === 'confirmations' && 'data-sort-active'}>Equivalent Confs</a>
+					<a data-sort="bitcoinEquivalentConfirmations" ${sortBy === 'bitcoinEquivalentConfirmations' && 'data-sort-active'}>Equivalent Confs</a>
 				</td>
 				<td>
-					<a data-sort="estimatedTimeForConfs" ${sortBy === 'estimatedTimeForConfs' && 'data-sort-active'}>Estimated Time</a>
+					<a data-sort="bitcoinEquivalentTimeForConfs" ${sortBy === 'bitcoinEquivalentTimeForConfs' && 'data-sort-active'}>Estimated Time</a>
 				</td>
 				<td>
-					<a data-sort="multiplier" ${sortBy === 'multiplier' && 'data-sort-active'}>Difference</a>
+					<a data-sort="bitcoinWorkMultiplier" ${sortBy === 'bitcoinWorkMultiplier' && 'data-sort-active'}>Difference</a>
 				</td>
 			</thead>
 			<tbody>
@@ -64,9 +64,9 @@ const render = (coins, sortBy) => {
 				</td>
 				<td>${escapeHTML(formatDollars(coin.marketCap) || 'Unknown')}</td>
 				<td>${escapeHTML(`${coin.algorithm} @ ${formatHashrate(coin.hashrate)}`)}</td>
-				<td>${escapeHTML(coin.bitcoinConfEquivalent.confirmations.toLocaleString())} confs</td>
-				<td>${escapeHTML(formatSeconds(coin.bitcoinConfEquivalent.estimatedTimeForConfs))}</td>
-				<td>${escapeHTML(coin.symbol === 'BTC' ? '-' : `${Math.round(coin.bitcoinConfEquivalent.multiplier).toLocaleString()}x slower`)}</td>
+				<td>${escapeHTML(coin.bitcoinEquivalentConfirmations.toLocaleString())} confs</td>
+				<td>${escapeHTML(formatSeconds(coin.bitcoinEquivalentTimeForConfs))}</td>
+				<td>${escapeHTML(coin.symbol === 'BTC' ? '-' : `${Math.round(coin.bitcoinWorkMultiplier).toLocaleString()}x slower`)}</td>
 			</tr>
 			`).join('')}
 			</tbody>

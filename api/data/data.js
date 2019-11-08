@@ -50,23 +50,19 @@ const getData = async () => {
 			const nicehasheable = (nicehash.hashrate / coin.hashrate * 100);
 
 			// Calculate confirmation values
-			const multiplier = (bitcoinHashrateCostPerSecond / hashrateCostPerSecond);
-			const workTime = (bitcoin.blockTimeInSeconds * multiplier);
-			const confirmations = Math.ceil(workTime / coin.blockTimeInSeconds);
-			const estimatedTimeForConfs = (coin.blockTimeInSeconds * confirmations);
+			const bitcoinWorkMultiplier = (bitcoinHashrateCostPerSecond / hashrateCostPerSecond);
+			const workTime = (bitcoin.blockTimeInSeconds * bitcoinWorkMultiplier);
+			const bitcoinEquivalentConfirmations = Math.ceil(workTime / coin.blockTimeInSeconds);
+			const bitcoinEquivalentTimeForConfs = (coin.blockTimeInSeconds * bitcoinEquivalentConfirmations);
 
 			return {
 				...coin,
-				attackCost: {
-					hashrateCostPerSecond,
-					attackHourlyCost,
-					nicehasheable
-				},
-				bitcoinConfEquivalent: {
-					multiplier,
-					confirmations,
-					estimatedTimeForConfs
-				}
+				hashrateCostPerSecond,
+				attackHourlyCost,
+				nicehasheable,
+				bitcoinWorkMultiplier,
+				bitcoinEquivalentConfirmations,
+				bitcoinEquivalentTimeForConfs,
 			};
 		});
 
