@@ -4,3 +4,5 @@
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
+[build.environment]
+  ZISI_VERSION = "0.4.0-7"
