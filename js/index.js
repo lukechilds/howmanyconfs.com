@@ -7,6 +7,8 @@ import formatSeconds from './format-seconds';
 import formatDollars from './format-dollars';
 import formatHashrate from './format-hashrate';
 
+const BITOIN_CONFIRMATIONS = 6;
+
 document.querySelector('.version').textContent = `v${version}`;
 
 const table = document.querySelector('table.results');
@@ -43,16 +45,16 @@ const render = (coins, sortBy) => {
 					<a data-sort="marketCap" ${sortBy === 'marketCap' && 'data-sort-active'}>Market Cap</a>
 				</td>
 				<td>
-					<a data-sort="bitcoinWorkMultiplier" ${sortBy === 'bitcoinWorkMultiplier' && 'data-sort-active'}>Proof-of-Work</a>
+					<a data-sort="multiplier" ${sortBy === 'multiplier' && 'data-sort-active'}>Proof-of-Work</a>
 				</td>
 				<td>
-					<a data-sort="bitcoinEquivalentConfirmations" ${sortBy === 'bitcoinEquivalentConfirmations' && 'data-sort-active'}>Equivalent Confs</a>
+					<a data-sort="confirmations" ${sortBy === 'confirmations' && 'data-sort-active'}>Equivalent Confs</a>
 				</td>
 				<td>
-					<a data-sort="bitcoinEquivalentTimeForConfs" ${sortBy === 'bitcoinEquivalentTimeForConfs' && 'data-sort-active'}>Estimated Time</a>
+					<a data-sort="timeForConfs" ${sortBy === 'timeForConfs' && 'data-sort-active'}>Estimated Time</a>
 				</td>
 				<td>
-					<a data-sort="bitcoinWorkMultiplier" ${sortBy === 'bitcoinWorkMultiplier' && 'data-sort-active'}>Difference</a>
+					<a data-sort="multiplier" ${sortBy === 'multiplier' && 'data-sort-active'}>Difference</a>
 				</td>
 			</thead>
 			<tbody>
@@ -64,9 +66,9 @@ const render = (coins, sortBy) => {
 				</td>
 				<td>${escapeHTML(formatDollars(coin.marketCap) || 'Unknown')}</td>
 				<td>${escapeHTML(`${coin.algorithm} @ ${formatHashrate(coin.hashrate)}`)}</td>
-				<td>${escapeHTML(coin.bitcoinEquivalentConfirmations.toLocaleString())} confs</td>
-				<td>${escapeHTML(formatSeconds(coin.bitcoinEquivalentTimeForConfs))}</td>
-				<td>${escapeHTML(coin.symbol === 'BTC' ? '-' : `${Math.round(coin.bitcoinWorkMultiplier).toLocaleString()}x slower`)}</td>
+				<td>${escapeHTML(coin.confirmations.toLocaleString())} confs</td>
+				<td>${escapeHTML(formatSeconds(coin.timeForConfs))}</td>
+				<td>${escapeHTML(coin.symbol === 'BTC' ? '-' : `${Math.round(coin.multiplier).toLocaleString()}x slower`)}</td>
 			</tr>
 			`).join('')}
 			</tbody>
@@ -79,6 +81,27 @@ const render = (coins, sortBy) => {
 fetch('/api/data')
 	.then(response => response.json())
 	.then(coins => {
+		// Calculate reference bitcoin values
+		const bitcoin = coins.find(coin => coin.symbol === 'BTC');
+		if (!bitcoin) {
+			// Handle this
+		}
+
+		coins = coins.map(coin => {
+			const multiplier = (bitcoin.hashrateCostPerSecond / coin.hashrateCostPerSecond);
+			const workTime = (bitcoin.blockTimeInSeconds * BITOIN_CONFIRMATIONS * multiplier);
+			const confirmations = Math.ceil(workTime / coin.blockTimeInSeconds);
+			const timeForConfs = (coin.blockTimeInSeconds * confirmations);
+
+			return {
+				...coin,
+				multiplier,
+				workTime,
+				confirmations,
+				timeForConfs
+			};
+		});
+
 		render(coins);
 
 		table.addEventListener('click', ({target}) => {
@@ -88,4 +111,4 @@ fetch('/api/data')
 
 			render(coins, target.dataset.sort);
 		});
-});
+	});

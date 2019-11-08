@@ -3,10 +3,6 @@ const sendJson = require('../send-json');
 const getNiceHashData = require('../nicehash/nicehash');
 const getCoinData = require('../coins/coins');
 
-const SECONDS = 1;
-const MINUTES = SECONDS * 60;
-const HOURS = MINUTES * 60;
-
 const getData = async () => {
 	const [nicehashAlgorithms, coins] = await Promise.all([
 		getNiceHashData(),
@@ -23,14 +19,6 @@ const getData = async () => {
 		return nicehashAlgorithms.find(algorithm => algorithm.name.toLowerCase() === coinAlgorithm.toLowerCase());
 	};
 
-	// Calculate reference bitcoin values
-	const bitcoin = coins.find(coin => coin.symbol === 'BTC');
-	if (!bitcoin) {
-		// Handle this
-	}
-
-	const bitcoinHashrateCostPerSecond = (bitcoin.hashrate * getNiceHashForCoin(bitcoin).pricePerHashPerSecond);
-
 	const data = coins
 		.filter(coin => {
 			const nicehash = getNiceHashForCoin(coin);
@@ -44,25 +32,13 @@ const getData = async () => {
 		.map(coin => {
 			const nicehash = getNiceHashForCoin(coin);
 
-			// Calculate 51% attack values
 			const hashrateCostPerSecond = (coin.hashrate * nicehash.pricePerHashPerSecond);
-			const attackHourlyCost = (HOURS * hashrateCostPerSecond);
 			const nicehasheable = (nicehash.hashrate / coin.hashrate * 100);
-
-			// Calculate confirmation values
-			const bitcoinWorkMultiplier = (bitcoinHashrateCostPerSecond / hashrateCostPerSecond);
-			const workTime = (bitcoin.blockTimeInSeconds * bitcoinWorkMultiplier);
-			const bitcoinEquivalentConfirmations = Math.ceil(workTime / coin.blockTimeInSeconds);
-			const bitcoinEquivalentTimeForConfs = (coin.blockTimeInSeconds * bitcoinEquivalentConfirmations);
 
 			return {
 				...coin,
 				hashrateCostPerSecond,
-				attackHourlyCost,
 				nicehasheable,
-				bitcoinWorkMultiplier,
-				bitcoinEquivalentConfirmations,
-				bitcoinEquivalentTimeForConfs,
 			};
 		});
 
