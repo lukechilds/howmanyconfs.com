@@ -16,7 +16,7 @@ const getData = async () => {
 	const getNiceHashForCoin = coin => {
 		const names = {
 			'SHA-256': 'sha256asicboost',
-			'Ethash': 'daggerhashimoto',
+			Ethash: 'daggerhashimoto'
 		};
 
 		const coinAlgorithm = names[coin.algorithm] || coin.algorithm;
@@ -28,12 +28,13 @@ const getData = async () => {
 	if (!bitcoin) {
 		// Handle this
 	}
+
 	const bitcoinHashrateCostPerSecond = (bitcoin.hashrate * getNiceHashForCoin(bitcoin).pricePerHashPerSecond);
 
 	const data = coins
 		.filter(coin => {
 			const nicehash = getNiceHashForCoin(coin);
-			if(!nicehash) {
+			if (!nicehash) {
 				// See if we can fix some of these
 				console.log(coin.symbol, coin.name, coin.algorithm);
 			}
@@ -59,15 +60,15 @@ const getData = async () => {
 				attackCost: {
 					hashrateCostPerSecond,
 					attackHourlyCost,
-					nicehasheable,
+					nicehasheable
 				},
 				bitcoinConfEquivalent: {
 					multiplier,
 					confirmations,
-					estimatedTimeForConfs,
-				},
+					estimatedTimeForConfs
+				}
 			};
-		})
+		});
 
 	return data;
 };

@@ -1,5 +1,5 @@
-const sendJson = require('../send-json');
 const fetch = require('isomorphic-fetch');
+const sendJson = require('../send-json');
 
 const getData = async endpoint => fetch(
 	`https://whattomine.com/${endpoint}.json`

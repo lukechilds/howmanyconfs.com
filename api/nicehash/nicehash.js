@@ -1,5 +1,5 @@
-const sendJson = require('../send-json');
 const fetch = require('isomorphic-fetch');
+const sendJson = require('../send-json');
 
 const SECONDS = 1;
 const MINUTES = SECONDS * 60;
