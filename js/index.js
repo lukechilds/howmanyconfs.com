@@ -4,6 +4,7 @@ import {version} from '../package';
 import getCoinSVGPath from './get-coin-svg-path';
 import getCoinName from './get-coin-name';
 import formatSeconds from './format-seconds';
+import coinBlackList from './coin-blacklist';
 import formatDollars from './format-dollars';
 import formatHashrate from './format-hashrate';
 
@@ -87,20 +88,22 @@ fetch('/api/data')
 			// Handle this
 		}
 
-		coins = coins.map(coin => {
-			const multiplier = (bitcoin.hashrateCostPerSecond / coin.hashrateCostPerSecond);
-			const workTime = (bitcoin.blockTimeInSeconds * BITOIN_CONFIRMATIONS * multiplier);
-			const confirmations = Math.ceil(workTime / coin.blockTimeInSeconds);
-			const timeForConfs = (coin.blockTimeInSeconds * confirmations);
+		coins = coins
+			.filter(coin => !coinBlackList.includes(coin.symbol))
+			.map(coin => {
+				const multiplier = (bitcoin.hashrateCostPerSecond / coin.hashrateCostPerSecond);
+				const workTime = (bitcoin.blockTimeInSeconds * BITOIN_CONFIRMATIONS * multiplier);
+				const confirmations = Math.ceil(workTime / coin.blockTimeInSeconds);
+				const timeForConfs = (coin.blockTimeInSeconds * confirmations);
 
-			return {
-				...coin,
-				multiplier,
-				workTime,
-				confirmations,
-				timeForConfs
-			};
-		});
+				return {
+					...coin,
+					multiplier,
+					workTime,
+					confirmations,
+					timeForConfs
+				};
+			});
 
 		render(coins);
 

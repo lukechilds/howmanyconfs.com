@@ -1,4 +1,22 @@
 export default [
-	'ARRR',
-	'HUSH3'
+	'DOGE',
+	'XDN',
+	'PPC',
+	'DGB', // We could actually support this if we merge the different algoriths
+	'DCY',
+	'DP',
+	'NLG',
+	'UNO',
+	'VIA',
+	'UBQ',
+	'GEO',
+	'XMY',
+	'FLO',
+	'FTC',
+	'PINK',
+	'CRW',
+	'MUE',
+	'XZC',
+	'ZEN',
+	'CANN'
 ];
