@@ -1,7 +1,6 @@
-const sendJson = require('../send-json');
-
-const getNiceHashData = require('../nicehash/nicehash');
-const getCoinData = require('../coins/coins');
+const sendJson = require('./util/send-json');
+const getNiceHashData = require('./nicehash');
+const getCoinData = require('./coins');
 
 const getData = async () => {
 	const [nicehashAlgorithms, coins] = await Promise.all([
