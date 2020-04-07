@@ -19,5 +19,8 @@ export default [
 	'MUE',
 	'XZC',
 	'ZEN',
-	'CANN'
+	'CANN',
+	'KMD',
+	'HUSH',
+	'ARRR'
 ];
