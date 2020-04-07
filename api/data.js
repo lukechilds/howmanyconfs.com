@@ -11,7 +11,8 @@ const getData = async () => {
 	const getNiceHashForCoin = coin => {
 		const names = {
 			'SHA-256': 'sha256asicboost',
-			Ethash: 'daggerhashimoto'
+			Ethash: 'daggerhashimoto',
+			RandomX: 'RandomXmonero'
 		};
 
 		const coinAlgorithm = names[coin.algorithm] || coin.algorithm;
