@@ -3,7 +3,7 @@ dist
 node_modules
 .nyc_output
 npm-debug.log
-package-lock.json
+yarn.lock
 yarn-error.log
 
 # Local Netlify folder
