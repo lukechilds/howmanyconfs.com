@@ -1,6 +1,6 @@
 {
   "name": "howmanyconfs.com",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "How many confirmations are equivalent to 6 Bitcoin confirmations?",
   "main": "index.html",
   "repository": "lukechilds/howmanyconfs.com",
