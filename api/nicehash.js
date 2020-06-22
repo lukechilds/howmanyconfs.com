@@ -10,20 +10,6 @@ const getData = async endpoint => fetch(
 	'https://api2.nicehash.com/main/api/v2/' + endpoint
 ).then(res => res.json());
 
-const convertToUnit = (value, unit) => {
-	const unitExponent = [
-		{units: ['H', 'G', 'SOL'], exponent: 0},
-		{units: ['KH', 'KG', 'KSOL'], exponent: 1},
-		{units: ['MSOL', 'MH'], exponent: 2},
-		{units: ['GH'], exponent: 3},
-		{units: ['TH'], exponent: 4},
-		{units: ['PH'], exponent: 5}
-	];
-	const {exponent} = unitExponent.find(value => value.units.includes(unit.toUpperCase()));
-
-	return value / (1000 ** exponent);
-};
-
 const getNiceHashData = async () => {
 	const [algorithmData, currentValues] = await Promise.all([
 		getData('mining/algorithms'),
@@ -46,7 +32,7 @@ const getNiceHashData = async () => {
 			algorithm.hashrate = values.s;
 
 			algorithm.priceReadable = (pricePerHashPerDay * marketFactor).toFixed(4) + ` BTC/${displayMarketFactor}/day`;
-			algorithm.hashrateReadable = convertToUnit(algorithm.hashrate, displayMarketFactor).toFixed(4) + ` ${displayMarketFactor}/s`;
+			algorithm.hashrateReadable = (algorithm.hashrate / marketFactor).toFixed(4) + ` ${displayMarketFactor}/s`;
 
 			return algorithm;
 		});
