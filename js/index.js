@@ -8,7 +8,7 @@ import coinBlackList from './coin-blacklist';
 import formatDollars from './format-dollars';
 import formatHashrate from './format-hashrate';
 
-const BITOIN_CONFIRMATIONS = 6;
+const BITCOIN_CONFIRMATIONS = 6;
 
 document.querySelector('.version').textContent = `v${version}`;
 
@@ -88,7 +88,7 @@ fetch('https://howmanyconfs.com/api/data')
 			.filter(coin => !coinBlackList.includes(coin.symbol))
 			.map(coin => {
 				const multiplier = (bitcoin.hashrateCostPerSecond / coin.hashrateCostPerSecond);
-				const workTime = (bitcoin.blockTimeInSeconds * BITOIN_CONFIRMATIONS * multiplier);
+				const workTime = (bitcoin.blockTimeInSeconds * BITCOIN_CONFIRMATIONS * multiplier);
 				const confirmations = Math.ceil(workTime / coin.blockTimeInSeconds);
 				const timeForConfs = (coin.blockTimeInSeconds * confirmations);
 
