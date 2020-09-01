@@ -36,6 +36,7 @@ const getNiceHashData = async () => {
 			if (algorithm.name === 'DaggerHashimoto') {
 				algorithm.pricePerHashPerSecond /= 10;
 			}
+
 			algorithm.hashrate = values.s;
 
 			algorithm.priceReadable = (pricePerHashPerDay * marketFactor).toFixed(4) + ` BTC/${displayMarketFactor}/day`;
