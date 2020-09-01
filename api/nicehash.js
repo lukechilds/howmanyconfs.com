@@ -29,6 +29,13 @@ const getNiceHashData = async () => {
 			const values = currentValues.algos.find(algo => algo.a === algorithm.id);
 			const pricePerHashPerDay = values.p / 100000000;
 			algorithm.pricePerHashPerSecond = pricePerHashPerDay / DAYS;
+			// TODO: Fix this properly.
+			// These calcs seem to be off by a factor of 10 for ETH/DaggerHashimoto.
+			// No idea why and no time to look into it right now but this dirty hack
+			// appears to be generating correct values for now.
+			if (algorithm.name === 'DaggerHashimoto') {
+				algorithm.pricePerHashPerSecond /= 10;
+			}
 			algorithm.hashrate = values.s;
 
 			algorithm.priceReadable = (pricePerHashPerDay * marketFactor).toFixed(4) + ` BTC/${displayMarketFactor}/day`;
