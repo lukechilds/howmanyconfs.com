@@ -1,5 +1,4 @@
 export default [
-	'DOGE',
 	'XDN',
 	'PPC',
 	'DGB', // We could actually support this if we merge the different algoriths
