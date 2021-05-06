@@ -1,25 +1,18 @@
 export default [
-	'XDN',
-	'PPC',
-	'DGB', // We could actually support this if we merge the different algoriths
-	'XVG',
-	'DCY',
-	'DP',
-	'NLG',
-	'UNO',
-	'VIA',
-	'UBQ',
-	'GEO',
-	'XMY',
-	'FLO',
-	'FTC',
-	'PINK',
-	'CRW',
-	'MUE',
-	'XZC',
-	'ZEN',
-	'CANN',
-	'KMD',
-	'HUSH',
-	'ARRR'
+	'XDN', // PoW/PoS hybrid
+	'PPC', // PoW/PoS hybrid
+	'DGB', // Multi-algo PoW
+	'XVG', // Multi-algo PoW
+	'DP', // PoW/PoS hybrid
+	'NLG', // PoW + Witness
+	'XMY', // Multi-algo PoW
+	'FLO', // Checkpoints
+	'FTC', // Checkpoints
+	'PINK', // PoW/PoS hybrid
+	'CRW', // Masternode PoS
+	'MUE', // Masternode PoS
+	'ZEN', // Delayed block submission penalty
+	'KMD', // dPoW
+	'HUSH', // dPoW
+	'ARRR' // dPoW
 ];
