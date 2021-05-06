@@ -24,7 +24,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "coinlist": "^3.1.2",
-    "cryptocurrency-icons": "^0.16.1",
+    "cryptocurrency-icons": "^0.17.1",
     "escape-html": "^1.0.3",
     "isomorphic-fetch": "^2.2.1",
     "modern-normalize": "^0.5.0",
