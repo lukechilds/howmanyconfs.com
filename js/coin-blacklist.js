@@ -12,7 +12,7 @@ export default [
 	'CRW', // Masternode PoS
 	'MUE', // Masternode PoS
 	'ZEN', // Delayed block submission penalty
-	'KMD', // dPoW
-	'HUSH', // dPoW
-	'ARRR' // dPoW
+	'KMD', // DPoW
+	'HUSH', // DPoW
+	'ARRR' // DPoW
 ];
