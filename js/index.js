@@ -69,7 +69,7 @@ const render = (coins, sortBy) => {
 				<td>${escapeHTML(`${coin.algorithm} @ ${formatHashrate(coin.hashrate)}`)}</td>
 				<td>${escapeHTML(coin.confirmations.toLocaleString())} confs</td>
 				<td>${escapeHTML(formatSeconds(coin.timeForConfs))}</td>
-				<td>${escapeHTML(coin.symbol === 'BTC' ? '-' : `${Math.round(coin.multiplier).toLocaleString()}x ${coin.isFaster ? 'faster' : 'slower'}`)}</td>
+				<td>${escapeHTML(coin.symbol === 'BTC' ? '-' : `${coin.formattedMultiplier}x ${coin.isFaster ? 'faster' : 'slower'}`)}</td>
 			</tr>
 			`).join('')}
 			</tbody>
@@ -92,6 +92,7 @@ fetch('https://howmanyconfs.com/api/data')
 				const confirmations = Math.ceil(workTime / coin.blockTimeInSeconds);
 				const timeForConfs = (coin.blockTimeInSeconds * confirmations);
 				const isFaster = multiplier < 1;
+				const formattedMultiplier = isFaster ? (1 / multiplier).toLocaleString(undefined, { maximumFractionDigits: 2 }) : Math.round(multiplier).toLocaleString()
 
 				return {
 					...coin,
@@ -99,7 +100,8 @@ fetch('https://howmanyconfs.com/api/data')
 					workTime,
 					confirmations,
 					timeForConfs,
-					isFaster
+					isFaster,
+					formattedMultiplier
 				};
 			});
 
