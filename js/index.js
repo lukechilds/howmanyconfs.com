@@ -92,7 +92,7 @@ fetch('https://howmanyconfs.com/api/data')
 				const confirmations = Math.ceil(workTime / coin.blockTimeInSeconds);
 				const timeForConfs = (coin.blockTimeInSeconds * confirmations);
 				const isFaster = multiplier < 1;
-				const formattedMultiplier = isFaster ? (1 / multiplier).toLocaleString(undefined, { maximumFractionDigits: 2 }) : Math.round(multiplier).toLocaleString()
+				const formattedMultiplier = isFaster ? (1 / multiplier).toLocaleString(undefined, {maximumFractionDigits: 2}) : Math.round(multiplier).toLocaleString();
 
 				return {
 					...coin,
