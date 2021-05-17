@@ -29,7 +29,7 @@ const getAlgorithms = () => [
 	},
 	{ // https://www.nicehash.com/profitability-calculator/nvidia-rtx-3090
 		name: 'Ethash',
-		joulesPerHash: RTX_3090_WATTAGE / rawHashes(110, 'MH')
+		joulesPerHash: RTX_3090_WATTAGE / rawHashes(120, 'MH')
 	},
 	{ // https://www.asicminervalue.com/miners/innosilicon/a6-ltcmaster-1
 		name: 'Scrypt',
