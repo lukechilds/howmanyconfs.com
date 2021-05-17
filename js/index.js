@@ -79,7 +79,7 @@ const render = (coins, sortBy) => {
 	document.dispatchEvent(new Event('prerender-trigger'));
 };
 
-fetch('https://howmanyconfs.com/api/data')
+fetch('/api/data')
 	.then(response => response.json())
 	.then(coins => {
 		const bitcoin = coins.find(coin => coin.symbol === 'BTC');
