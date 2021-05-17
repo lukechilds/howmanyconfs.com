@@ -2,7 +2,7 @@ const formatUnits = (originalValue, singleUnit) => ['', 'K', 'M', 'G', 'T', 'P']
 	const devisor = (1000 ** exponent);
 	if (originalValue > devisor) {
 		let value = originalValue / devisor;
-		value = value < 10 ? value.toFixed(2) : Math.floor(value)
+		value = value < 10 ? value.toFixed(2) : Math.floor(value);
 		return `${value.toLocaleString()} ${unit}${singleUnit}`;
 	}
 
