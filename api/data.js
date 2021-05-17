@@ -15,13 +15,9 @@ const getData = async () => {
 		.filter(coin => getCoinAlgorithm(coin))
 		.map(coin => {
 			const algorithm = getCoinAlgorithm(coin);
+			coin.watts = (coin.hashrate * algorithm.joulesPerHash);
 
-			const watts = (coin.hashrate * algorithm.joulesPerHash);
-
-			return {
-				...coin,
-				watts,
-			};
+			return coin;
 		});
 
 	return data;
