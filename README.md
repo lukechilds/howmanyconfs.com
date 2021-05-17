@@ -15,9 +15,9 @@ Compare the time required for an equivalent amount of work to be completed betwe
 
 It's easy to compare blockchain hashrates when the Proof-of-Work algorithm is the same. For example if Bitcoin has a hashrate of SHA-256 @ 40 PH/s and Bitcoin Cash has a hashrate of SHA-256 @ 2 PH/s, it's easy to see that for a given period of time the Bitcoin blockchain will have 20x (40/2) the amount of work securing it than the Bitcoin Cash blockchain. Or to say that differently, you need to wait for 20x more Bitcoin Cash confirmations before an equivalent amount of work has been done compared to the Bitcoin blockchain. So 6 Bitcoin confirmations would be roughly equivalent to 120 Bitcoin Cash confirmations in the amount of work done.
 
-However if the Proof-of-Work algorithms are different, how can we compare the hashrate? If we're comparing Bitcoin (SHA-256 @ 40 PH/s) against Litecoin (Scrypt @ 300 TH/s), the hashes aren't equal, one round of SHA-256 is not equivalent to one round of Scrypt.
+However if the Proof-of-Work algorithms are different, how can we compare the hashrate (or hash power)? If we're comparing Bitcoin (SHA-256 @ 40 PH/s) against Litecoin (Scrypt @ 300 TH/s), the hashes aren't equal, one round of SHA-256 is not equivalent to one round of Scrypt.
 
-What we really want to know is how much energy is being consumed to provide the current hash rate. Literal energy, as in joules or kilowatt hours. It would be great if we had a universal metric across blockchains like kWh/s to measure immutability.
+What we really want to know is how much electrical power is being consumed to provide the current hash power. Literal electrical power, in Watt. It would be great if we had a universal metric across blockchains like kW to measure immutability. Once we have a common unit for hash power (electrical power in Watt), we can calculate the amount of work (energy) in Wh (or better kWh) realized by the network in a given amount of time, or the time needed to perform a given amount of work.
 
 However that's fairly hard to calculate, we need to know the average power consumption of the average device used to mine. For GPU/CPU mined Proof-of-Work algorithms this varies greatly. For ASIC mined Proof-of-Work algorithms it varies less, however it's likely that ASIC manufacturers are mining with next generation hardware long before the public is made aware of them, which we can't account for.
 
@@ -25,19 +25,19 @@ There's no automated way to get this data and no reliable data source to scrape 
 
 Is there a simpler way to get an estimated amount of work per blockchain in a single metric we can use for comparisons?
 
-Yeah, there is, we can use NiceHash prices to estimate the cost in $ to secure a blockchain for a given timeframe. This is directly comparable across blockchains and should be directly proportionate to kWh/s, because after all, the energy needs to be paid for in $.
+Yeah, there is, we can use NiceHash prices to estimate the cost in $ to secure a blockchain for a given timeframe. This is directly comparable across blockchains and should be directly proportional to the hash power in Watt, because after all, the energy needs to be paid for in $.
 
 How can we estimate this?
 
 - Get the blockchains Proof-of-Work algorithm
 - Lookup the average price per hash on NiceHash for this algorithm
-- Multiply price per hash by total hashrate per second
+- Multiply price per hash by total hashrate (hashes per second).
 
-Now we have an estimated total Proof-of-Work metric measured in dollars per second ($/s).
+Now we have an estimated total hash-power metric measured in dollars per second ($/s).
 
 The $/s metric may not be that accurate. Miners will mark up the cost when reselling on NiceHash and we're making the assumption that NiceHash supply is infinite. You can't actually rent 100% of Bitcoin's hashpower from NiceHash, there isn't enough supply.
 
-However that's not really an issue for this metric, we aren't trying to calculate the theoretical cost to rent an *additional* 100% of the hashrate, we're trying to get a figure that allows us to compare the cost of the *current* total hashrate accross blockchains. Even if the exact $ value we end up with is not that accurate, it should still be proportionate to kWh/s. This means it's still an accurate metric to compare the difference in work done over a given amount of time between blockchains.
+However that's not really an issue for this metric, we aren't trying to calculate the theoretical cost to rent an *additional* 100% of the hashrate, we're trying to get a figure that allows us to compare the cost of the *current* total hashrate accross blockchains. Even if the exact $ value we end up with is not that accurate, it should still be proportional to kWh. This means it's still an accurate metric to compare the difference in work done over a given amount of time between blockchains.
 
 So how do we compare these values between blockchains?
 
@@ -83,11 +83,11 @@ For example take the following two blockchains:
 - Bitcoin Cash (SHA-256 @ 2 PH/s) or ($5/s)
 - Zcash (Equihash @ 4 GH/s) or ($3/s)
 
-Bitcoin Cash has a higher $/s value than Zcash so we can deduce it has more "work done" over a given timeframe than Zcash. More kWh/s are required to secure it's blockchain. However does that really mean it's safer?
+Bitcoin Cash has a higher $/s value than Zcash so we can deduce it has more hash-power than Zcash. More kWh are required to secure it's blockchain. However does that really mean it's safer?
 
 Zcash is the dominant blockchain for it's Proof-of-Work algorithm (Equihash). Whereas Bitcoin Cash isn't, it uses the same algorithm as Bitcoin. In fact just 5% of Bitcoin's hashrate is equivalent to all of Bitcoin Cash's hashrate.
 
-This means the cost of a 51% attack against Bitcoin Cash could actually be much lower than a 51% attack against Zcash, even though you need to aquire more kWh/s of work, the cost to aquire those kWh/s will likely be lower.
+This means the cost of a 51% attack against Bitcoin Cash could actually be much lower than a 51% attack against Zcash, even though you need to aquire more kWh of work, the cost to aquire those kWh will likely be lower.
 
 To attack Bitcoin Cash you don't need to acquire any hardware, you just need to convince 5% of the Bitcoin hashrate to lend their SHA-256 hashpower to you.
 
