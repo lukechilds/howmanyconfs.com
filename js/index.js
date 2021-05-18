@@ -6,7 +6,7 @@ import getCoinName from './get-coin-name';
 import formatSeconds from './format-seconds';
 import coinBlackList from './coin-blacklist';
 import formatDollars from './format-dollars';
-import formatHashrate from './format-hashrate';
+import formatUnits from './format-units';
 
 const BITCOIN_CONFIRMATIONS = 6;
 
@@ -66,7 +66,7 @@ const render = (coins, sortBy) => {
 					${escapeHTML(`${getCoinName(coin)} (${coin.symbol})`)}
 				</td>
 				<td>${escapeHTML(formatDollars(coin.marketCap) || 'Unknown')}</td>
-				<td>${escapeHTML(`${coin.algorithm} @ ${formatHashrate(coin.hashrate)}`)}</td>
+				<td>${escapeHTML(`${coin.algorithm} @ ${formatUnits(coin.hashrate, 'H/s')}`)} = ${formatUnits(coin.watts, 'W')}</td>
 				<td>${escapeHTML(coin.confirmations.toLocaleString())} confs</td>
 				<td>${escapeHTML(formatSeconds(coin.timeForConfs))}</td>
 				<td>${escapeHTML(coin.symbol === 'BTC' ? '-' : `${Math.round(coin.multiplier).toLocaleString()}x slower`)}</td>
@@ -87,7 +87,7 @@ fetch('https://howmanyconfs.com/api/data')
 		coins = coins
 			.filter(coin => !coinBlackList.includes(coin.symbol))
 			.map(coin => {
-				const multiplier = (bitcoin.hashrateCostPerSecond / coin.hashrateCostPerSecond);
+				const multiplier = (bitcoin.watts / coin.watts);
 				const workTime = (bitcoin.blockTimeInSeconds * BITCOIN_CONFIRMATIONS * multiplier);
 				const confirmations = Math.ceil(workTime / coin.blockTimeInSeconds);
 				const timeForConfs = (coin.blockTimeInSeconds * confirmations);
