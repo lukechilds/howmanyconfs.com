@@ -31,7 +31,8 @@ const getCoinData = async () => {
 };
 
 module.exports = async (request, response) => {
-	res.setHeader('Access-Control-Allow-Origin', '*')
-	response.json(await getCoinData())
+	response.setHeader('Access-Control-Allow-Origin', '*');
+	response.json(await getCoinData());
 };
+
 module.exports.getCoinData = getCoinData;
