@@ -1,0 +1,13 @@
+name: Deploy to Vercel
+
+on:
+  schedule:
+    # Daily
+    - cron: 0 0 * * *
+
+jobs:
+  build:
+    name: Execute Webhook
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl -X POST -d {} ${{ secrets.DEPLOY_WEBHOOK }}
