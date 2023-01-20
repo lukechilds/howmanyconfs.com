@@ -1,6 +1,7 @@
 import 'babel-polyfill'; // eslint-disable-line import/no-unassigned-import
 import escapeHTML from 'escape-html';
 import {version} from '../package';
+import coinHasIcon from './coin-has-icon';
 import getCoinSVGPath from './get-coin-svg-path';
 import getCoinName from './get-coin-name';
 import formatSeconds from './format-seconds';
@@ -85,7 +86,7 @@ fetch('https://howmanyconfs.com/api/data')
 		const bitcoin = coins.find(coin => coin.symbol === 'BTC');
 
 		coins = coins
-			.filter(coin => !coinBlackList.includes(coin.symbol))
+			.filter(coin => coinHasIcon(coin.symbol) && !coinBlackList.includes(coin.symbol))
 			.map(coin => {
 				const multiplier = (bitcoin.watts / coin.watts);
 				const workTime = (bitcoin.blockTimeInSeconds * BITCOIN_CONFIRMATIONS * multiplier);
