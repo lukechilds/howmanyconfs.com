@@ -1,6 +1,5 @@
-const sendJson = require('./util/send-json');
-const getCoinData = require('./coins');
-const getAlgorithms = require('./algorithms');
+const {getCoinData} = require('./coins');
+const {getAlgorithms} = require('./algorithms');
 
 const algorithms = getAlgorithms();
 
@@ -23,5 +22,4 @@ const getData = async () => {
 	return data;
 };
 
-module.exports = getData;
-module.exports.handler = () => sendJson(getData);
+module.exports = async (request, response) => response.json(await getData())

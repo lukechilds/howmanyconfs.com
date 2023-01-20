@@ -1,5 +1,3 @@
-const sendJson = require('./util/send-json');
-
 const ANTMINER_S19_PRO_WATTAGE = 3250;
 const RTX_3090_WATTAGE = 285;
 const INNOSILICON_A6_PLUS_WATTAGE = 2100;
@@ -69,5 +67,5 @@ const getAlgorithms = () => [
 	}
 ];
 
-module.exports = getAlgorithms;
-module.exports.handler = () => sendJson(getAlgorithms);
+module.exports = async (request, response) => response.json(await getAlgorithms());
+module.exports.getAlgorithms = getAlgorithms;

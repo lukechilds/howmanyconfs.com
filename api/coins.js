@@ -1,5 +1,4 @@
 const fetch = require('isomorphic-fetch');
-const sendJson = require('./util/send-json');
 
 const getData = async endpoint => fetch(
 	`https://whattomine.com/${endpoint}.json`
@@ -31,5 +30,5 @@ const getCoinData = async () => {
 	return coins;
 };
 
-module.exports = getCoinData;
-module.exports.handler = () => sendJson(getCoinData);
+module.exports = async (request, response) => response.json(await getCoinData());
+module.exports.getCoinData = getCoinData;
