@@ -1,4 +1,3 @@
-import 'babel-polyfill'; // eslint-disable-line import/no-unassigned-import
 import escapeHTML from 'escape-html';
 import {version} from '../package';
 import coinHasIcon from './coin-has-icon';
