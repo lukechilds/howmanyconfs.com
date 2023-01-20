@@ -32,9 +32,7 @@ header .bitcoin-logo {
 }
 
 header .arm {
-  font-size: 90px;
-  position: relative;
-  top: -10px;
+  width: 90px;
 }
 
 header h1 {
