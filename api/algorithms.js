@@ -67,5 +67,8 @@ const getAlgorithms = () => [
 	}
 ];
 
-module.exports = async (request, response) => response.json(await getAlgorithms());
+module.exports = async (request, response) => {
+	res.setHeader('Access-Control-Allow-Origin', '*')
+	response.json(await getAlgorithms())
+};
 module.exports.getAlgorithms = getAlgorithms;

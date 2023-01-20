@@ -22,4 +22,7 @@ const getData = async () => {
 	return data;
 };
 
-module.exports = async (request, response) => response.json(await getData());
+module.exports = async (request, response) => {
+	res.setHeader('Access-Control-Allow-Origin', '*')
+	response.json(await getData())
+};
