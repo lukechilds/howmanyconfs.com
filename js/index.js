@@ -1,3 +1,4 @@
+import { inject } from '@vercel/analytics';
 import escapeHTML from 'escape-html';
 import {version} from '../package';
 import coinHasIcon from './coin-has-icon';
@@ -7,6 +8,8 @@ import formatSeconds from './format-seconds';
 import coinBlackList from './coin-blacklist';
 import formatDollars from './format-dollars';
 import formatUnits from './format-units';
+
+inject();
 
 const BITCOIN_CONFIRMATIONS = 6;
 
