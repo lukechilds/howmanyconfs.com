@@ -6,7 +6,7 @@ const STU_U6_WATTAGE = 2200;
 const ANTMINER_Z15_WATTAGE = 1510;
 const STU_U1_PLUSPLUS_WATTAGE = 2200;
 const GOLDSHELL_CK5_WATTAGE = 2400;
-
+const ANTMINER_KS7_40T_WATTAGE = 3080;
 const rawHashes = (hashes, unit) => {
 	const multiplier = {
 		H: 1000 ** 0,
@@ -64,7 +64,11 @@ const getAlgorithms = () => [
 	{ // https://www.asicminervalue.com/miners/goldshell/ck5
 		name: 'Eaglesong',
 		joulesPerHash: GOLDSHELL_CK5_WATTAGE / rawHashes(12, 'TH')
-	}
+	},
+    { // https://whattomine.com/coins/352-kas-kheavyhash/asics/346-bitmain-antminer-ks7-40t
+        name: 'kHeavyHash',
+        joulesPerHash: ANTMINER_KS7_40T_WATTAGE / rawHashes(40, 'TH')
+    }
 ];
 
 module.exports = async (request, response) => {
